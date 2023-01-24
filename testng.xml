@@ -4,8 +4,8 @@
 	<test thread-count="5" name="Regression Test">
 		<parameter name="url" value="https://www.amazon.com"></parameter>
 		<parameter name="browser" value="chrome"></parameter>
-		<parameter name="grid" value="false"></parameter>
-		<parameter name="productName" value="Iphone 14"></parameter>
+		<parameter name="setupType" value="web driver"></parameter>
+		<parameter name="productName" value="Nike Socks"></parameter>
 		<parameter name="testUsername" value="test123@gmail.com"></parameter>
 		<parameter name="testPassword" value="test123"></parameter>
 		<classes>

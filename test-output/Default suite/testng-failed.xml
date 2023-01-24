@@ -7,7 +7,12 @@
         <methods>
           <include name="setup"/>
           <include name="getSearchResults"/>
+          <include name="getDepartments"/>
+          <include name="testSignIn"/>
           <include name="tearDown"/>
+          <include name="testHomeButton"/>
+          <include name="testSearchBar"/>
+          <include name="testTitle"/>
         </methods>
       </class> <!-- test.test -->
     </classes>

@@ -5,6 +5,7 @@ import java.net.URL;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,11 +13,14 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class Amazon_base {
 	WebDriver driver;
 
-	public void gridSetupOrWebdriver(String browser, String url, boolean grid) {
-		if (grid) {
+	public void gridSetupOrWebdriver(String browser, String url, String setupType) {
+		if (setupType.equalsIgnoreCase("grid")) {
 			gridSetup(url);
-		} else {
+		} else if(setupType.equalsIgnoreCase("web driver")) {
 			amazonSetup(browser, url);
+		}
+		else {
+			System.out.println("Invalid setup provided!");
 		}
 	}
 
@@ -44,6 +48,10 @@ public class Amazon_base {
 			System.setProperty("webdriver.firefox.driver", userDir + "\\drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
+		else if(browser.equalsIgnoreCase("edge")) {
+			System.setProperty("webdriver.edge.driver", userDir + "\\drivers\\msedgedriver.exe");
+			driver = new EdgeDriver();
+		}
 
 		driver.manage().window().maximize();
 		if (url.equals("")) {
@@ -54,6 +62,7 @@ public class Amazon_base {
 
 	}
 
+	//encapsulation
 	public WebDriver getDriver() {
 		return this.driver;
 	}

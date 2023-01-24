@@ -4,15 +4,15 @@
   <test thread-count="5" name="Regression Test(failed)">
     <parameter name="testPassword" value="test123"/>
     <parameter name="testUsername" value="test123@gmail.com"/>
-    <parameter name="grid" value="false"/>
     <parameter name="browser" value="chrome"/>
+    <parameter name="setupType" value="web driver"/>
     <parameter name="url" value="https://www.amazon.com"/>
-    <parameter name="productName" value="Iphone 14"/>
+    <parameter name="productName" value="Apple Watch"/>
     <classes>
       <class name="test.test">
         <methods>
           <include name="setup"/>
-          <include name="getSearchResults"/>
+          <include name="getSearchResults" invocation-numbers="0"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- test.test -->

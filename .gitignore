@@ -1,0 +1,5 @@
+# ignore target/ files
+target/
+
+#ignore test-output/ files
+test-output/
