@@ -26,7 +26,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import utils.Amazon_base;
-import utils.helperMethods;
+import utils.HelperMethods;
 
 /**
  * A Selenium based java project to test and automate the functionality of a web
@@ -36,7 +36,7 @@ import utils.helperMethods;
  *
  */
 public class test {
-	helperMethods method = new helperMethods();
+	HelperMethods method = new HelperMethods();
 	Amazon_base baseMethods;
 	WebDriver driver;
 	WebDriverWait wait;
@@ -132,9 +132,9 @@ public class test {
 	 * 
 	 * @param productName the product being searched for on Amazon.com
 	 */
-	@Parameters({ "productName" })
+	@Parameters({ "productName", "fileName"})
 	@Test
-	public void getSearchResults(String productName) {
+	public void getSearchResults(String productName, String outputFileName) {
 		driver.findElement(By.id("twotabsearchtextbox")).sendKeys(productName);
 		driver.findElement(By.id("nav-search-submit-button")).click();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(3));
@@ -147,7 +147,7 @@ public class test {
 		}
 
 		try {
-			method.writeToFile(searchLinks, searchResult);
+			method.writeToFile(searchLinks, searchResult, outputFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
